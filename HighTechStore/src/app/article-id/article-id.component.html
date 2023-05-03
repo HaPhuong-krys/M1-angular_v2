@@ -1,1 +1,9 @@
-<p>article-id works!</p>
+<div *ngIf="article">
+    <h2>{{ article.libelle }}</h2>
+    <img src="{{article.photo}}" class="card-img-top" alt="...">
+    <p>{{ article.description }}</p>
+    <ul>
+      <li>Catégorie: {{ article.categorie }}</li>
+      <li>Prix: {{ article.prix }}</li>
+    </ul>
+  </div>
