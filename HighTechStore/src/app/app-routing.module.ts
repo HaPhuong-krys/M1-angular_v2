@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'DisqueDur', component: DisqueDurComponent},
   { path: 'USB', component: UsbComponent},
   { path: 'AccessoireStock', component : AccessoireStockageComponent},
+  { path: '', component : AccueilComponent},
   { path: 'accueil', component : AccueilComponent},
   { path: 'article/liste/:id', component : ArticleIdComponent}
 ];
