@@ -1,31 +1,25 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { LigneDeCommande } from '../Model/LigneDeCommande';
+import { LigneDeCmdService } from '../ligne-de-cmd.service';
 
 @Component({
   selector: 'app-ligne-de-commande',
   templateUrl: './ligne-de-commande.component.html',
-  styleUrls: ['./ligne-de-commande.component.css']
+  styleUrls: ['./ligne-de-commande.component.css'],
 })
 export class LigneDeCommandeComponent {
-  public commandId: number = 0;
-  @Input() articleId: number = 0;
-  @Input() articleName: string = '';
-  @Input() prix: number = 0;
-  @Input() quantite: number = 0;
-  @Input() userId: number = 0;  
+  @Input() ligne: LigneDeCommande = new LigneDeCommande(0, '', 0, 0);
   @Output() quantiteChange = new EventEmitter<number>();
 
-  constructor() {}
+  constructor(private ligneDeCommandeService: LigneDeCmdService) {}
 
   incrementQuantity(): void {
-    this.quantite++;
-    this.quantiteChange.emit(this.quantite);
+    this.ligneDeCommandeService.incrementQuantities(this.ligne);
+    this.quantiteChange.emit(this.ligne.quantite);
   }
-  
+
   decrementQuantity(): void {
-    if (this.quantite > 1) {
-      this.quantite--;
-      this.quantiteChange.emit(this.quantite);
-    }
+    this.ligneDeCommandeService.decrementQuantities(this.ligne);
+    this.quantiteChange.emit(this.ligne.quantite);
   }
-  
 }

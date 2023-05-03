@@ -1,33 +1,51 @@
 import { Injectable } from '@angular/core';
-import { LigneDeCommandeComponent } from './ligne-de-commande/ligne-de-commande.component';
+import { LigneDeCommande } from './Model/LigneDeCommande';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PanierService {
-  private items: LigneDeCommandeComponent[] = [];
+  public items: LigneDeCommande[] = [];
 
   constructor() { }
-
-  ajouterAuPanier(item: LigneDeCommandeComponent) {
-    this.items.push(item);
-    this.saveCart();
+  
+  private saveCart() {
+    localStorage.setItem('panier', JSON.stringify(this.items));
   }
 
-  modifierLigne(item: LigneDeCommandeComponent, newQuantite: number) {
-    const index = this.items.indexOf(item);
+  private loadCart() {
+    const data = localStorage.getItem('panier');
+    if (data) {
+      this.items = JSON.parse(data);
+    }
+  }
+  
+  //fait en sorte que si le produit qu'on ouhaite ajouter existe deja dans le panier, c'est la quantité qui augmente 
+  ajouterAuPanier(item: LigneDeCommande) {
+    const index = this.items.findIndex(i => i.articleId === item.articleId);
+    if (index !== -1) {
+      this.items[index].quantite += item.quantite;
+    } else {
+      this.items.push(item);
+    }
+    this.saveCart();
+  }
+  
+  //Modifie egalement le prix du produit
+  modifierLigne(item: LigneDeCommande, newQuantite: number) {
+    const index = this.items.findIndex(i => i.commandId === item.commandId);
     if (index > -1) {
       this.items[index].quantite = newQuantite;
       this.saveCart();
     }
   }
+  
 
-  supprimerDuPanier(item: LigneDeCommandeComponent) {
+  supprimerDuPanier(item: LigneDeCommande) {
     const index = this.items.indexOf(item);
-    if (index > -1) {
-      this.items.splice(index, 1);
-      this.saveCart();
-    }
+    console.log(this.items);
+    this.items.splice(index, 1);
+    this.saveCart();
   }
 
   getItems() {
@@ -45,14 +63,5 @@ export class PanierService {
     return this.items.reduce((acc, item) => acc + (item.quantite * item.prix), 0);
   }
 
-  private saveCart() {
-    localStorage.setItem('panier', JSON.stringify(this.items));
-  }
 
-  private loadCart() {
-    const data = localStorage.getItem('panier');
-    if (data) {
-      this.items = JSON.parse(data);
-    }
-  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LigneDeCommandeComponent } from '../ligne-de-commande/ligne-de-commande.component';
+import { LigneDeCommande } from '../Model/LigneDeCommande';
 import { PanierService } from '../panier.service';
 
 @Component({
@@ -8,54 +8,37 @@ import { PanierService } from '../panier.service';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
-  items: LigneDeCommandeComponent[] = [];
-  
+
+  items: LigneDeCommande[] = [];
   constructor(private panierService: PanierService) { }
 
   ngOnInit() {
     this.items = this.panierService.getItems();
   }
 
+  //Montant total des produits
   getTotal() {
     return this.panierService.getTotal();
   }
 
+  //Vider entièrement le panier
   viderPanier() {
     this.panierService.viderPanier();
     this.items = [];
   }
 
-  supprimerDuPanier(ligne: LigneDeCommandeComponent) {
+  //Suppression d'une ligne de commande
+  supprimerDuPanier(ligne: LigneDeCommande) {
     this.panierService.supprimerDuPanier(ligne);
     this.items = this.panierService.getItems();
   }
 
-  modifierLigne(ligne: LigneDeCommandeComponent, newQuantite: number) {
+  //Modifier la quantité d'une ligne de commande
+  modifierLigne(ligne: LigneDeCommande, newQuantite: number) {
     this.panierService.modifierLigne(ligne, newQuantite);
     this.items = this.panierService.getItems();
   }
 
-  ajouterLigne(ligne: LigneDeCommandeComponent) {
-    this.panierService.ajouterAuPanier(ligne);
-    this.items = this.panierService.getItems();
-  }
 
-  supprimerLigne(articleId: number) {
-    const item = this.items.find(i => i.articleId === articleId);
-    if (item) {
-      this.supprimerDuPanier(item);
-    }
-  }
-
-  ajouterAuPanier(article: any) {
-    const newLigneDeCommande = new LigneDeCommandeComponent();
-    newLigneDeCommande.articleId = article.id;
-    newLigneDeCommande.articleName = article.libelle;
-    newLigneDeCommande.prix = article.prix;
-    newLigneDeCommande.quantite = 1;
-  
-    this.panierService.ajouterAuPanier(newLigneDeCommande);
-  }
-  
   
 }

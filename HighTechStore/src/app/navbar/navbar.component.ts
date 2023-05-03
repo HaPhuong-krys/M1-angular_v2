@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { LoginService, User } from '../login.service';
 import { Observable } from 'rxjs';
 import { PanierService } from '../panier.service'
-import { LigneDeCommandeComponent } from '../ligne-de-commande/ligne-de-commande.component';
+import { LigneDeCommande } from '../Model/LigneDeCommande';
 
 @Component({
   selector: 'app-navbar',
@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/Connexion']);
   }
 
-  getItems(): LigneDeCommandeComponent[] {
+  getItems(): LigneDeCommande[] {
     return this.panierService.getItems();
   }
 
