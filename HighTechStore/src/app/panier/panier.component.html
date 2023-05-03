@@ -1,0 +1,41 @@
+<h2>Mon panier</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Article</th>
+      <th scope="col">Prix unitaire</th>
+      <th scope="col">Quantité</th>
+      <th scope="col">Total</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{ item.articleName }}</td>
+      <td>{{ item.prix }} €</td>
+      <td>
+        <app-ligne-de-commande
+          [quantite]="item.quantite"
+          (quantiteChange)="modifierLigne(item, $event)">
+        </app-ligne-de-commande>
+      </td>
+      <td>{{ item.quantite * item.prix }} €</td>
+      <td>
+        <button class="btn btn-danger"
+                (click)="supprimerDuPanier(item)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="items.length == 0">
+  Votre panier est vide.
+</div>
+
+<div *ngIf="items.length > 0">
+  <button class="btn btn-secondary" (click)="viderPanier()">Vider le panier</button>
+  <div class="text-right">
+    <strong>Total : {{ getTotal() }} €</strong>
+  </div>
+</div>

@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { PcPortableServiceService } from '../pc-portable-service.service';
 import { Articles } from '../Model/Articles';
+import { LigneDeCommandeComponent } from '../ligne-de-commande/ligne-de-commande.component';
+
+import { PanierService } from '../panier.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pc-portable',
@@ -11,7 +15,7 @@ export class PcPortableComponent {
 
   article: Array<Articles> = [];
 
-  constructor(private portableService : PcPortableServiceService){
+  constructor(private portableService : PcPortableServiceService, private panierService: PanierService, private router: Router){
 
   }
 
@@ -25,4 +29,16 @@ export class PcPortableComponent {
       console.log(this.article);
     });
   }
+
+  ajouterAuPanier(article: Articles) {
+    const ligneDeCommande = new LigneDeCommandeComponent();
+    ligneDeCommande.articleId = article.id!;
+    ligneDeCommande.articleName = article.libelle!;
+    ligneDeCommande.prix = article.prix!;
+    ligneDeCommande.quantite = 1;
+  
+    this.panierService.ajouterAuPanier(ligneDeCommande);
+    this.router.navigate(['/panier']);
+  }
+  
 }

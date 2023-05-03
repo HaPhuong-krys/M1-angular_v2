@@ -3,11 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { PcPortableComponent } from './pc-portable/pc-portable.component';
 import { PcBureauComponent } from './pc-bureau/pc-bureau.component';
-import { ConnexionComponent } from './connexion/connexion.component';
 import { PhonesModule } from './modules/phones/phones.module';
 import { StockageModule } from './modules/stockage/stockage.module';
 import { AjouterArticleFormComponent } from './ajouter-article-form/ajouter-article-form.component';
@@ -33,15 +31,19 @@ import { DisqueDurServiceService } from './disque-dur-service.service';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ArticleIdComponent } from './article-id/article-id.component';
 import { ArticleIdServiceService } from './article-id-service.service';
+import { UsersComponent } from './users/users.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { DeconnexionComponent } from './deconnexion/deconnexion.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LigneDeCommandeComponent } from './ligne-de-commande/ligne-de-commande.component';
+import { PanierComponent } from './panier/panier.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
     PcPortableComponent,
     PcBureauComponent,
-    ConnexionComponent,
     AjouterArticleFormComponent,
     FooterComponent,
     AccessoireOrdiComponent,
@@ -53,6 +55,12 @@ import { ArticleIdServiceService } from './article-id-service.service';
     AccessoireStockageComponent,
     AccueilComponent,
     ArticleIdComponent,
+    UsersComponent,
+    ConnexionComponent,
+    DeconnexionComponent,
+    NavbarComponent,
+    LigneDeCommandeComponent,
+    PanierComponent,
   ],
   imports: [
     BrowserModule,

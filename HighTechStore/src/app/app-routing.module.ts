@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConnexionComponent } from './connexion/connexion.component';
 import { HomeComponent } from './home/home.component';
 import { PcBureauComponent } from './pc-bureau/pc-bureau.component';
 import { PcPortableComponent } from './pc-portable/pc-portable.component';
@@ -14,13 +13,13 @@ import { UsbComponent } from './usb/usb.component';
 import { AccessoireStockageComponent } from './accessoire-stockage/accessoire-stockage.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ArticleIdComponent } from './article-id/article-id.component';
-
+import { ConnexionComponent } from './connexion/connexion.component';
+import { PanierComponent } from './panier/panier.component';
 
 const routes: Routes = [
   { path:'home', component:HomeComponent},
   { path: 'PcPortable', component: PcPortableComponent},
   { path: 'PcBureau', component: PcBureauComponent},
-  { path: 'Connexion', component: ConnexionComponent},
   { path: 'AjouterAticleForm', component: AjouterArticleFormComponent},
   { path: 'AccessoireOrdi', component: AccessoireOrdiComponent},
   { path: 'SmartPhone', component: SmartPhoneComponent},
@@ -29,8 +28,11 @@ const routes: Routes = [
   { path: 'DisqueDur', component: DisqueDurComponent},
   { path: 'USB', component: UsbComponent},
   { path: 'AccessoireStock', component : AccessoireStockageComponent},
-  { path: 'accueil', component : AccueilComponent},
-  { path: 'article/liste/:id', component : ArticleIdComponent}
+  { path: '', component : AccueilComponent},
+  { path: 'article/liste/:id', component : ArticleIdComponent}, 
+  { path: 'Connexion', component : ConnexionComponent},
+  { path: 'panier', component : PanierComponent}
+
 ];
 
 @NgModule({
