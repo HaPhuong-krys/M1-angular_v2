@@ -43,6 +43,10 @@
               <li><a class="dropdown-item" href="/AccessoireStock">Accessoire</a></li>
             </ul>
           </li>
+          <!--Mettre partie Ajouter article-->
+          <a class="navbar-brand" routerLink="/AjouterAticleForm"> Gestion des articles</a>
+
+
       </ul>
   
       <div class="d-flex align-items-center justify-content-between text-center">
@@ -58,7 +62,7 @@
   
         &nbsp;&nbsp;
         
-       <div *ngIf="isLoggedIn$ | async">
+       <div *ngIf="!(isLoggedIn$ | async)">
           <a routerLink="/panier">Mon panier</a>
           &nbsp;
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -78,8 +82,8 @@
           <ng-container *ngIf="!(isLoggedIn$ | async)">
             <a routerLink="/Connexion" class="btn btn-primary mx-3" role="button">Login</a>
           </ng-container>
-         
         </div>
+        
       </div>
     </div>
   </div>

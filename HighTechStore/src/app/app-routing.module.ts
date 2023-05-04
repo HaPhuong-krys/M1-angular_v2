@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: '', component : AccueilComponent},
   { path: 'article/liste/:id', component : ArticleIdComponent}, 
   { path: 'Connexion', component : ConnexionComponent},
-  { path: 'panier', component : PanierComponent}
+  { path: 'panier', component : PanierComponent},
 
 ];
 

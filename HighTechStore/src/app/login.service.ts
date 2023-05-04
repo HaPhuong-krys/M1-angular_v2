@@ -78,5 +78,5 @@ export class LoginService {
     const body = { client_id: userId, total: 0 };
     return this.http.post(this.apiUrl, body);
   }
-  
+
 }

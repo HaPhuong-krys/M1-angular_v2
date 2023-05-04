@@ -63,5 +63,12 @@ export class PanierService {
     return this.items.reduce((acc, item) => acc + (item.quantite * item.prix), 0);
   }
 
+  // validerPanier() {
+  //   // Bouclez sur chaque ligne de commande et enregistrez-les
+  //   for (const ligneDeCommande of this.panier) {
+  //     this.votreService.enregistrerLigneDeCommande(ligneDeCommande).subscribe();
+  //   }
+  // }
+
 
 }
