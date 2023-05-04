@@ -1,10 +1,27 @@
-<div class="row">
+<div class="row"> 
   <div class="col-sm-4" *ngFor="let article of article">
     <div class="card" style="width: 22rem;">
       <img src="{{article.photo}}" class="card-img-top" alt="...">
       <div class="card-body">
       <h5 class="card-title">{{article.libelle}}</h5>
       <p class="card-text">Description : {{article.description}}</p>
+
+      </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Categorie : {{ article.categorie}}</li>
+      <li class="list-group-item">Prix {{ article.prix}}</li>
+    </ul>
+    <div class="row">
+      <div class="col-sm-3">
+        <a href="article/liste/{{article.id}}" class="btn btn-primary">Details</a>
+      </div>
+      <div class="col-sm-3">
+        <a href="#" class="btn btn-primary">Ajouter</a>
+      </div>
+      <div class="col-sm-3" *ngIf="article.categorie">
+        
+      </div>
+>>>>>>> 2087bda6f6fa43d4c918c85bd93ed8c9e8fcc1d8
     </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Categorie : {{ article.categorie}}</li>

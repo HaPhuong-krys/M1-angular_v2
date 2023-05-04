@@ -1,1 +1,28 @@
-<p>article-id works!</p>
+<div *ngIf="article" class="border p-3">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <img src="{{article.photo}}" class="card-img-top" alt="...">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title">{{ article.libelle }}</h2>
+                <p class="card-text">Prix: {{ article.prix }}</p>
+              </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">{{ article.description }}</h2>
+    
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+</div>

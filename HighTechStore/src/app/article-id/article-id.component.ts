@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Articles } from '../Model/Articles';
 import { ActivatedRoute } from '@angular/router';
 import { ArticleIdServiceService } from '../article-id-service.service';
@@ -8,7 +8,7 @@ import { ArticleIdServiceService } from '../article-id-service.service';
   templateUrl: './article-id.component.html',
   styleUrls: ['./article-id.component.css']
 })
-export class ArticleIdComponent {
+export class ArticleIdComponent implements OnInit {
 
   article?: Articles;
 
@@ -23,5 +23,4 @@ export class ArticleIdComponent {
       this.article = data;
     });
   }
-
 }
