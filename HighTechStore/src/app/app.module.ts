@@ -33,6 +33,7 @@ import { DisqueDurServiceService } from './disque-dur-service.service';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ArticleIdComponent } from './article-id/article-id.component';
 import { ArticleIdServiceService } from './article-id-service.service';
+import { ModifierArticleComponent } from './modifier-article/modifier-article.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ArticleIdServiceService } from './article-id-service.service';
     AccessoireStockageComponent,
     AccueilComponent,
     ArticleIdComponent,
+    ModifierArticleComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,6 @@ import { ArticleIdServiceService } from './article-id-service.service';
     AccesTelfixServiceService,
     DisqueDurServiceService,
     ArticleIdServiceService
-   
   ],
   bootstrap: [AppComponent]
 })

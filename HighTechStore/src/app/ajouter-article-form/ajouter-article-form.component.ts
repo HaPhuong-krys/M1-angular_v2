@@ -54,31 +54,6 @@ export class AjouterArticleFormComponent implements OnInit {
     photo: new FormControl('',Validators.required )
   });
 
-   getCategoryFolderName(categoryName: string): string {
-    switch (categoryName) {
-      case 'PC PORTABLE':
-        return 'Pc_Portable';
-      case 'STOCKAGE':
-        return 'acc_sto';
-      case 'PC BUREAU':
-        return 'bureau';
-      case 'Accessoire Ordinateur':
-        return 'acc_or';
-      case 'Smart Phone':
-        return 'smart';
-      case 'STel Fix ':
-       return 'fixe';
-      case 'Accessoire Tel':
-        return 'acc_tel';
-      case 'Disque Dur':
-        return 'dis_dur';
-      case 'Clé USB':
-        return 'usb';
-      default:
-        return 'error';
-    }
-  }
-
   onSubmit() {
     console.log(this.article);
     this.articleService.creerArticle(this.article).subscribe(

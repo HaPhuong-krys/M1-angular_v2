@@ -7,3 +7,4 @@ export class Articles {
     photo?: string;
     description?: string;
 }
+

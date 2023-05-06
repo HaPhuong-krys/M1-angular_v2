@@ -25,4 +25,8 @@ export class PcPortableComponent {
       console.log(this.article);
     });
   }
+
+  onEditArticle(id:number){
+    
+  }
 }

@@ -14,6 +14,7 @@ import { UsbComponent } from './usb/usb.component';
 import { AccessoireStockageComponent } from './accessoire-stockage/accessoire-stockage.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ArticleIdComponent } from './article-id/article-id.component';
+import { ModifierArticleComponent } from './modifier-article/modifier-article.component';
 
 
 const routes: Routes = [
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'AccessoireStock', component : AccessoireStockageComponent},
   { path: '', component : AccueilComponent},
   { path: 'accueil', component : AccueilComponent},
-  { path: 'article/liste/:id', component : ArticleIdComponent}
+  { path: 'article/liste/:id', component : ArticleIdComponent},
+  { path: 'article/update/form/:id', component: ModifierArticleComponent}
 ];
 
 @NgModule({

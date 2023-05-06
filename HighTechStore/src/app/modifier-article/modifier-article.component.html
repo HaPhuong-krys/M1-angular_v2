@@ -1,0 +1,42 @@
+<div class="container">
+    <h1>Modifier article</h1>
+    <form (ngSubmit)="modifierArticle()">
+      
+      <div class="form-group">
+        <label for="libelle">Libelle de l'article</label>
+        <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="article.libelle" [ngModelOptions]="{standalone: true}">
+      </div>
+    
+      <div class="form-group">
+        <label for="marque">Marque</label>
+        <input type="text" class="form-control" id="marque" name = "marque" [(ngModel)]="article.marque" [ngModelOptions]="{standalone: true}">
+      </div>
+      
+      <div class="form-group">
+          <label for="prix">prix</label>
+          <input type="number" class="form-control" id="prix" name = "prix" [(ngModel)]="article.prix" [ngModelOptions]="{standalone: true}">
+      </div>
+      
+      <div class="form-group">
+          <label for="Categories">Categories</label>
+          <select class="custom-select mr-sm-8" id="caterogies" [(ngModel)]="article.categorie" [ngModelOptions]="{standalone: true}">
+            <option selected>Choose...</option>
+              <option *ngFor="let category of cats" [value]="category.nom_categorie">{{category.nom_categorie}}</option>
+    
+          </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="prix">Descriotion</label>
+        <input type="text" class="form-control" id="description" name = "description" [(ngModel)]="article.description" [ngModelOptions]="{standalone: true}">
+    </div>
+    
+      <div class="form-group">
+        <label for="photo">Photo</label>
+        <input type="text" class="form-control" id="photo" name="photo" [(ngModel)]="article.photo" [ngModelOptions]="{standalone: true}">
+      </div>
+    
+    
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
