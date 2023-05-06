@@ -21,7 +21,7 @@ export class AjouterArticleFormComponent implements OnInit {
     {id: 1, nom_categorie: 'PC PORTABLE'},
     {id: 2, nom_categorie: 'PC BUREAU'},
     {id: 3, nom_categorie: 'Accessoire Ordinateur'},
-    {id: 4, nom_categorie: 'Smart Phone '}, 
+    {id: 4, nom_categorie: 'Smart Phone'}, 
     {id: 5, nom_categorie: 'Tel Fix'},
     {id: 6, nom_categorie: 'Accessoire Tel'},
     {id: 7, nom_categorie: 'Disque Dur'}, 
@@ -64,7 +64,7 @@ export class AjouterArticleFormComponent implements OnInit {
         return 'bureau';
       case 'Accessoire Ordinateur':
         return 'acc_or';
-      case 'Smart Phone ':
+      case 'Smart Phone':
         return 'smart';
       case 'STel Fix ':
        return 'fixe';

@@ -21,7 +21,7 @@
         <label for="Categories">Categories</label>
         <select class="custom-select mr-sm-8" id="caterogies" [(ngModel)]="article.categorie" [ngModelOptions]="{standalone: true}">
           <option selected>Choose...</option>
-            <option *ngFor="let category of cats" [value]="category.id">{{ category.nom_categorie }}</option>
+            <option *ngFor="let category of cats" [value]="category.nom_categorie">{{category.nom_categorie}}</option>
   
         </select>
     </div>
