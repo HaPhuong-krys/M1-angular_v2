@@ -34,6 +34,10 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ArticleIdComponent } from './article-id/article-id.component';
 import { ArticleIdServiceService } from './article-id-service.service';
 import { ModifierArticleComponent } from './modifier-article/modifier-article.component';
+import { DeconnexionComponent } from './deconnexion/deconnexion.component';
+import { LigneDeCommandeComponent } from './ligne-de-commande/ligne-de-commande.component';
+import { PanierComponent } from './panier/panier.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +59,10 @@ import { ModifierArticleComponent } from './modifier-article/modifier-article.co
     AccueilComponent,
     ArticleIdComponent,
     ModifierArticleComponent,
+    DeconnexionComponent,
+    LigneDeCommandeComponent,
+    PanierComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,16 @@
         <a href="article/liste/{{article.id}}" class="btn btn-primary">Details</a>
       </div>
       <div class="col-sm-3">
-        <a href="#" class="btn btn-primary">Ajouter</a>
+        <a href="article/update/form/{{article.id}}" class="btn btn-primary">Modifier</a>
+      </div>
+      <div class="col-sm-3">
+        <a href="/PcBureau" class="btn btn-primary" (click)="confirmSupprimerArticle(article)">Supprimer</a>
+      </div>
+      <div class="col-sm-6">
+        <a (click)="ajouterAuPanier(article)" class="btn btn-primary">Ajouter</a>
+      </div>
+      <div class="col-sm-3" *ngIf="article.categorie">
+        
       </div>
     </div>
   </div>

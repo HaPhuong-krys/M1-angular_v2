@@ -10,6 +10,7 @@ import { Articles } from './Model/Articles';
 export class ArticleService {
 
   private apiUrl = 'http://localhost:8080/Projet-REST-V1/articles/add';
+  delUrl = 'http://localhost:8080/Projet-REST-V1/articles/delete';
 
   constructor(private httpClient :HttpClient) { }
 
@@ -18,6 +19,8 @@ export class ArticleService {
     return this.httpClient.post(`${this.apiUrl}`,article);
   }
 
-  
+  supprimerArticle(art: Articles){
+    return this.httpClient.delete(`${this.delUrl}/${art.id}`);
+  }
 
 }

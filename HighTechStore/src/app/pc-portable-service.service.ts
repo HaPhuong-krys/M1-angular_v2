@@ -10,9 +10,16 @@ import { Articles } from './Model/Articles';
 export class PcPortableServiceService {
   url_portable = 'http://localhost:8080/Projet-REST-V1/articles/list/PC_Portable';
 
+  delUrl = 'http://localhost:8080/Projet-REST-V1/articles/delete';
+
+
   constructor(private http:HttpClient) { }
 
   getArticlePcPortable():Observable<Array<Articles>>{
     return this.http.get<Array<Articles>>(this.url_portable);
+  }
+
+  supprimerArticle(art: Articles){
+    return this.http.delete(`${this.delUrl}/${art.id}`);
   }
 }
